@@ -1,0 +1,6 @@
+unorder_map = {}
+        for i, num in enumerate(nums):
+            if num in unorder_map and i - unorder_map[num] <= k:
+                return True
+            unorder_map[num] = i
+        return False
