@@ -1,0 +1,22 @@
+class Solution(object):
+    def permute(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        perms , sol = [], [] 
+        
+        def backtrack():
+            if len(nums) == len(sol):
+                perms.append(sol[:])
+                return
+            
+            for num in nums:
+                if not num in sol:
+                    sol.append(num)
+                    backtrack()
+                    sol.pop()
+        
+        backtrack()
+        return perms
+
