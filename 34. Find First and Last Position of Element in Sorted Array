@@ -1,0 +1,18 @@
+class Solution(object):
+    def searchRange(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        n = len(nums)
+        mpp = {}
+        for i in range(n):
+            if nums[i] not in mpp:
+                mpp[nums[i]] = []
+            mpp[nums[i]].append(i)
+        
+        if target in mpp:
+            idx = mpp[target]
+            return [idx[0],idx[-1]]
+        return [-1,-1]
