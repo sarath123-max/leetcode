@@ -1,0 +1,14 @@
+class Solution:
+    def singleNumber(self, nums: List[int]) -> List[int]:
+        dici = {}
+        ans = []
+        n = len(nums)
+        for i in range(n):
+            if nums[i] in dici:
+                dici[nums[i]] += 1
+            else:
+                dici[nums[i]] = 1
+        for key, value in dici.items():
+            if value == 1:
+                ans.append(key)
+        return ans
