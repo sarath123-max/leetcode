@@ -1,0 +1,20 @@
+class Solution:
+    def duplicateNumbersXOR(self, nums: List[int]) -> int:
+        dici = {}
+        n = len(nums)
+        for i in range(n):
+            if nums[i] in dici:
+                dici[nums[i]] += 1
+            else:
+                dici[nums[i]] = 1
+        ans = []
+        for key, value in dici.items():
+            if value == 2:
+                ans.append(key)
+        op = 0
+        for i in ans:
+            op ^= i
+        return op if ans else 0
+            
+
+        
